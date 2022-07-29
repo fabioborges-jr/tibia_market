@@ -1,9 +1,9 @@
 .headerContainer {
     background-color: var(--gray-700);
     height: 7rem;
+    border-bottom: 1px solid var(--gray-400);
 
     .container {
-        border-bottom: 1px solid var(--gray-400);
         display: flex;
         max-width: 1120px;
         width: 100%;

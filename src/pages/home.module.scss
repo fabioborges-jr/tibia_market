@@ -1,0 +1,23 @@
+.mainContainer {
+    background-color: var(--blue-800);
+    height: calc(100vh - 7rem);
+    display: flex;
+    align-items: center;
+
+    span {
+        color: var(--white);
+
+        h1 {
+            color: var(--orange-500);
+        }
+    }
+}
+
+.sectionContainer {
+    max-width: 1120px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
