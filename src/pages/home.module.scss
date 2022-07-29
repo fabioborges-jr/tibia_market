@@ -2,6 +2,8 @@
     background-color: var(--blue-800);
     height: calc(100vh - 11rem);
     display: flex;
+    flex: 200px;
+    flex-wrap: wrap;
     align-items: center;
 
     span {
