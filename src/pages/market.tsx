@@ -4,58 +4,57 @@ import styles from "./market.module.scss"
 export default function Market() {
     return (
         <main className={styles.mainContainer}>
-            <section>
 
-                <p>Market from Venebra</p>
+            <section className={styles.sectionContainer}>
 
-                <div>
-                    <ul>
-                        <li>Armors</li>
-                        <li>Weapons</li>
-                        <li>Legs</li>
-                        <li>Tibia Coin</li>
-                    </ul>
+            <p className={styles.title}>Market from Venebra</p>
 
+                <div className={styles.world}>
+                    <p>World:</p>
+                    <select>
+                        <option value="">--Please choose a World--</option>
+                        <option value="dog">Venebra</option>
+                        <option value="cat">Reinobra</option>
+                        <option value="hamster">Belobra</option>
+                        <option value="parrot">Xantera</option>
+                        <option value="spider">Luminera</option>
+                        <option value="goldfish">Magera</option>
+                    </select>
+                </div>
+
+                <div className={styles.category}>
+                    <p>Armors</p>
+                    <p>Weapons</p>
+                    <p>Legs</p>
+                    <p>Tibia Coin</p>
+                </div>
+
+                <div className={styles.itens}>
+                    <p>Itens:</p>
                     <div>
-                        <p>Itens:</p>
-                        <ul>
-                            <li>
-                                <img src="/images/falconGreaves.png" alt="" />
-                                <p>Falcon Greaves</p>
-                            </li>
-                            <li>
-                                <img src="/images/soulBleeder.png" alt="" />
-                                <p>Soulbleeder</p>
-                            </li>
-                            <li>
-                                <img src="/images/souleater.png" alt="" />
-                                <p>Souleater</p>
-                            </li>
-                            <li>
-                                <img src="/images/tibiaCoin.png" alt="" />
-                                <p>Tibia Coins</p>
-                            </li>
-                        </ul>
+                        <p>
+                            <img src="/images/falconGreaves.png" alt="" />
+                            Falcon Greaves
+                        </p>
+                        <p>
+                            <img src="/images/soulBleeder.png" alt="" />
+                            Soulbleeder
+                        </p>
+                        <p>
+                            <img src="/images/souleater.png" alt="" />
+                            Souleater
+                        </p>
+                        <p>
+                            <img src="/images/tibiaCoin.png" alt="" />
+                            Tibia Coins
+                        </p>
                     </div>
                 </div>
 
-                <div>
-                    <div>
-                        <p>Server:</p>
-                        <select>
-                            <option value="">--Please choose an server--</option>
-                            <option value="dog">Venebra</option>
-                            <option value="cat">Reinobra</option>
-                            <option value="hamster">Belobra</option>
-                            <option value="parrot">Xantera</option>
-                            <option value="spider">Luminera</option>
-                            <option value="goldfish">Magera</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <p>Sell Offers:</p>
-                        <table>
+                <div className={styles.sellOffers}>
+                    <p>Sell Offers:</p>
+                    <table>
+                        <tbody>
                             <tr>
                                 <th>Date</th>
                                 <th>Piece Price</th>
@@ -76,11 +75,14 @@ export default function Market() {
                                 <td>25-07-2022</td>
                                 <td>27,487 gold</td>
                             </tr>
-                        </table>
+                        </tbody>
+                    </table>
+                </div>
 
-                        <div>
-                        <p>Buy Offers:</p>
-                        <table>
+                <div className={styles.buyOffers}>
+                    <p >Buy Offers:</p>
+                    <table>
+                        <tbody>
                             <tr>
                                 <th>Date</th>
                                 <th>Piece Price</th>
@@ -101,11 +103,10 @@ export default function Market() {
                                 <td>25-07-2022</td>
                                 <td>27,487 gold</td>
                             </tr>
-                        </table>
-                        
-                    </div>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
+
             </section>
         </main>
     )
