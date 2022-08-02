@@ -18,6 +18,16 @@
     --blue-800: #07081D;
 }
 
-body {
+body,
+select,
+p,
+span,
+input {
     font-family: "roboto";
+    font-size: 1rem;
+}
+
+button,
+a {
+    cursor: pointer;
 }
