@@ -40,9 +40,24 @@ export default function MarketPlace() {
                 </select>
             </div>
 
-            <div className={styles.items}>
-                <Select options={options} defaultMenuIsOpen />
-            </div>
+                <ul className={styles.items}>
+                    <li>
+                        <img src="/images/falconGreaves.png" alt="" />
+                        Falcon Greaves
+                    </li>
+                    <li>
+                        <img src="/images/soulBleeder.png" alt="" />
+                        Soul Bleeder
+                    </li>
+                    <li>
+                        <img src="/images/souleater.png" alt="" />
+                        Souleater
+                    </li>
+                    <li>
+                        <img src="/images/tibiaCoin.png" alt="" />
+                        Tibia Coin
+                    </li>
+                </ul>
 
             <div className={styles.sellOffers}>
                 <p>Sell Offers:</p>
