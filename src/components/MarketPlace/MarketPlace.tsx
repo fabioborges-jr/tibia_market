@@ -3,14 +3,6 @@ import styles from "./styles.module.scss"
 import Select from "react-select"
 
 export default function MarketPlace() {
-
-    const options = [
-        { value: "falconGreaves", label: "Falcon Greaves" },
-        { value: "soulBleeder", label: "Soul Bleeder" },
-        { value: "souleater", label: "Souleater" },
-        { value: "tibiaCoin", label: "Tibia Coin" }
-    ]
-
     return (
         <section className={styles.sectionContainer}>
 
@@ -116,8 +108,9 @@ export default function MarketPlace() {
             </div>
 
             <div className={styles.howMuch}>
-                <label>Sell Offer:<input type="number" name="" id="" /></label>
-                <label>Buy Offer:<input type="number" name="" id="" /></label>
+                <p>How Much</p> 
+                <label>Sell Offer:<input type="number" name="" id="" /><button>Submit</button></label>
+                <label>Buy Offer:<input type="number" name="" id="" /><button>Submit</button></label>
             </div>
 
         </section>

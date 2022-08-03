@@ -1,5 +1,6 @@
 .sectionContainer {
     max-width: 1120px;
+    margin-top: 2rem;
     width: 100%;
     padding: 0 0.8rem 0.8rem;
     margin: 0 1rem;
@@ -23,8 +24,8 @@
             "world"
             "category"
             "items"
-            "buyOffers"
             "sellOffers"
+            "buyOffers"
             "howMuch"
         ;
 
@@ -43,12 +44,14 @@
     .world {
         grid-area: world;
         padding: 1rem 0;
+        display: inline-block;
 
         span {
             background-color: var(--gray-700);
             border-radius: 0.25rem;
             padding: 0.6rem;
             margin-left: 1rem;
+            width: 100%;
 
             select {
                 margin-left: 0.8rem;
@@ -57,7 +60,7 @@
                 color: var(--gray-300);
                 padding: 0.25rem 0.5rem;
                 border-radius: 0.25rem;
-                width: 250px;
+
             }
         }
     }
@@ -104,6 +107,11 @@
         grid-area: sellOffers;
         margin-left: 1rem;
         background-color: var(--gray-700);
+
+        @media (max-width:720px) {
+            margin-left: 0;
+            margin-top: 1rem;
+        }
     }
 
     .buyOffers {
@@ -112,23 +120,37 @@
         margin-left: 1rem;
         background-color: var(--gray-700);
         margin-top: 1rem;
+
+        @media (max-width:720px) {
+            margin-left: 0;
+        }
     }
 
     .howMuch {
         background-color: var(--gray-700);
-        display: flex;
-        justify-content: space-around;
         grid-area: howMuch;
-        height: 4rem;
+        min-height: 4rem;
         align-items: center;
-        margin-top: 1rem;
+        margin: 1rem 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
 
         label {
+            margin: 1rem 0;
+            padding: 1rem;
+
             input {
-                margin-left: 0.5rem;
                 padding: 0.4rem;
                 background-color: var(--gray-500);
                 color: var(--gray-300);
+                width: 100%;
+            }
+
+            button{
+                padding:0.35rem;
+                background-color: var(--gray-500);
+                color: var(--gray-300);
+                margin-top: 0.5rem;
             }
         }
     }
