@@ -32,24 +32,24 @@ export default function MarketPlace() {
                 </select>
             </div>
 
-                <ul className={styles.items}>
-                    <li>
-                        <img src="/images/falconGreaves.png" alt="" />
-                        Falcon Greaves
-                    </li>
-                    <li>
-                        <img src="/images/soulBleeder.png" alt="" />
-                        Soul Bleeder
-                    </li>
-                    <li>
-                        <img src="/images/souleater.png" alt="" />
-                        Souleater
-                    </li>
-                    <li>
-                        <img src="/images/tibiaCoin.png" alt="" />
-                        Tibia Coin
-                    </li>
-                </ul>
+            <ul className={styles.items}>
+                <li>
+                    <img src="/images/falconGreaves.png" alt="" />
+                    Falcon Greaves
+                </li>
+                <li>
+                    <img src="/images/soulBleeder.png" alt="" />
+                    Soul Bleeder
+                </li>
+                <li>
+                    <img src="/images/souleater.png" alt="" />
+                    Souleater
+                </li>
+                <li>
+                    <img src="/images/tibiaCoin.png" alt="" />
+                    Tibia Coin
+                </li>
+            </ul>
 
             <div className={styles.sellOffers}>
                 <p>Sell Offers:</p>
@@ -108,9 +108,16 @@ export default function MarketPlace() {
             </div>
 
             <div className={styles.howMuch}>
-                <p>How Much</p> 
-                <label>Sell Offer:<input type="number" name="" id="" /><button>Submit</button></label>
-                <label>Buy Offer:<input type="number" name="" id="" /><button>Submit</button></label>
+                <p>How much does it cost at Venebra right now? (login with google require)</p>
+                <article>
+                    <label>Sell Offer:<input type="number" name="" id="" /></label>
+                    <label>
+                        Buy Offer:
+                        <input type="number" name="" id="" />
+                        <button>Submit</button>
+                    </label>
+
+                </article>
             </div>
 
         </section>
