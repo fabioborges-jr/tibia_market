@@ -3,24 +3,27 @@ import styles from "./styles.module.scss"
 import Select from "react-select"
 
 export default function MarketPlace() {
+
+    const options = [
+        { value: "venebra", label: "Venebra" },
+        { value: "belobra", label: "Belobra" },
+        { value: "reinobra", label: "Reinobra" },
+        { value: "gladera", label: "Gladera" }
+    ]
+
     return (
         <section className={styles.sectionContainer}>
 
             <p className={styles.title}>Market from Venebra</p>
 
             <div className={styles.world}>
-                <span>World:
-                    <select>
-                        <option value="">--Please choose a World--</option>
-                        <option value="dog">Venebra</option>
-                        <option value="cat">Reinobra</option>
-                        <option value="hamster">Belobra</option>
-                        <option value="parrot">Xantera</option>
-                        <option value="spider">Luminera</option>
-                        <option value="goldfish">Magera</option>
-                    </select>
-                </span>
-
+                <Select
+                    options={options}
+                    placeholder="Select the world"
+                    isClearable
+                    className={styles.select}
+                    closeMenuOnScroll={false}
+                />
             </div>
 
             <div className={styles.category}>
