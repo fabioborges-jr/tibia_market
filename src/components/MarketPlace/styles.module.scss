@@ -10,8 +10,8 @@
     display: grid;
     grid-template-areas:
         "title title"
-        "category world"
-        "category sellOffers"
+        "items world"
+        "items sellOffers"
         "items sellOffers"
         "items buyOffers"
         "items howMuch"
@@ -49,11 +49,14 @@
         .select {
 
             [class$="control"] {
-
+                background-color: var(--gray-700);
+                border: 0;
 
                 [class$="ValueContainer"] {
 
-                    [class$="Input"] {}
+                    [class$="singleValue"] {
+                        color: var(--gray-300);
+                    }
                 }
 
                 [class$="indicatorsContainer"] {
@@ -63,13 +66,10 @@
             }
 
             [class$="menu"] {
+                background-color: var(--gray-700);
 
-                [class$="list"] {
-                    &:hover {
-                        background-color: red;
-
-                        [class$="option"] {}
-                    }
+                [class$="valueContainer"]{
+                    background-color: red;
                 }
             }
         }
@@ -84,6 +84,7 @@
             background-color: inherit;
             color: inherit;
             width: 100%;
+            height: 100%;
         }
     }
 
@@ -152,6 +153,7 @@
         background-color: var(--gray-700);
         grid-area: howMuch;
 
+
         p {
             padding: 1rem;
             text-align: center;
@@ -161,6 +163,7 @@
             margin-bottom: 1rem;
 
             label {
+                margin-left: 1rem;
                 display: inline-block;
 
                 input {

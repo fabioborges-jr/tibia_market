@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import styles from "./styles.module.scss"
 import Select from "react-select"
+import axios from "axios"
+import { useEffect, useState } from "react"
 
 export default function MarketPlace() {
 
@@ -10,6 +12,18 @@ export default function MarketPlace() {
         { value: "reinobra", label: "Reinobra" },
         { value: "gladera", label: "Gladera" }
     ]
+
+    const [items, setItems] = useState()
+
+
+    useEffect(() => {
+        axios.get("/api/items")
+            .then(response => setItems(response.data))
+            .catch(error => console.log(error))
+    }, [])
+
+    console.log(items);
+    
 
     return (
         <section className={styles.sectionContainer}>
@@ -22,17 +36,7 @@ export default function MarketPlace() {
                     placeholder="Select the world"
                     isClearable
                     className={styles.select}
-                    closeMenuOnScroll={false}
                 />
-            </div>
-
-            <div className={styles.category}>
-                <select multiple>
-                    <option>Armor</option>
-                    <option>Legs</option>
-                    <option>Weapon</option>
-                    <option>Other</option>
-                </select>
             </div>
 
             <ul className={styles.items}>
