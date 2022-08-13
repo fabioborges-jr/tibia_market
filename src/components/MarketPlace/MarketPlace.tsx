@@ -6,12 +6,8 @@ import { useEffect, useState } from "react"
 
 export default function MarketPlace() {
 
-    interface worlds {
-        name: string
-    }
-
     const [items, setItems] = useState()
-    const [worlds, setWorlds] = useState<worlds[]>([])
+    // const [worlds, setWorlds] = useState([])
     const [options, setOptions] = useState([])
 
     useEffect(() => {
@@ -21,15 +17,14 @@ export default function MarketPlace() {
     }, [])
 
     useEffect(() => {
+        let data = []
         axios.get("https://api.tibiadata.com/v3/worlds")
-            .then(response => setWorlds(response.data.worlds.regular_worlds))
-            .then(response => setOptions(worlds.map(world => {
+            .then(response => data = response.data.worlds.regular_worlds)
+            .then(response => setOptions(data.map(world => {
                 return ({ value: world.name, label: world.name })
             })))
             .catch(error => console.log(error))
     }, [])
-
-
 
     return (
         <section className={styles.sectionContainer}>
