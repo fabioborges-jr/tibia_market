@@ -1,13 +1,14 @@
-/* eslint-disable @next/next/no-img-element */
-import styles from "./styles.module.scss"
 import Select from "react-select"
 import axios from "axios"
 import { useEffect, useState } from "react"
 
+import Item from "../Item/Item"
+
+import styles from "./styles.module.scss"
+
 export default function MarketPlace() {
 
-    const [items, setItems] = useState()
-    // const [worlds, setWorlds] = useState([])
+    const [items, setItems] = useState([])
     const [options, setOptions] = useState([])
 
     useEffect(() => {
@@ -41,22 +42,7 @@ export default function MarketPlace() {
             </div>
 
             <ul className={styles.items}>
-                <li>
-                    <img src="/images/falconGreaves.png" alt="" />
-                    Falcon Greaves
-                </li>
-                <li>
-                    <img src="/images/soulBleeder.png" alt="" />
-                    Soul Bleeder
-                </li>
-                <li>
-                    <img src="/images/souleater.png" alt="" />
-                    Souleater
-                </li>
-                <li>
-                    <img src="/images/tibiaCoin.png" alt="" />
-                    Tibia Coin
-                </li>
+                {items.map((item) => <Item key={item.name} itemsList={item} />)}
             </ul>
 
             <div className={styles.sellOffers}>
