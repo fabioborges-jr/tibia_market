@@ -2,7 +2,7 @@ import Select from "react-select"
 import axios from "axios"
 import { useEffect, useState } from "react"
 
-import Item from "../Item/Item"
+import MarketItem from "../MarketItem/MarketItem"
 
 import styles from "./styles.module.scss"
 
@@ -42,7 +42,7 @@ export default function MarketPlace() {
             </div>
 
             <ul className={styles.items}>
-                {items.map((item) => <Item key={item.name} itemsList={item} />)}
+                {items.map(item => <MarketItem key={item.name} itemsList={item} />)}
             </ul>
 
             <div className={styles.sellOffers}>

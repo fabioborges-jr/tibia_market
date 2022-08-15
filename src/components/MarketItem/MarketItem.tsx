@@ -2,8 +2,8 @@
 export default function Item(props) {
     return (
         <li>
-            <img src="" alt="" />
-            {props.name}
+            <img src={props.itemsList.image} alt="" />
+            {props.itemsList.name}
         </li>
     )
 }
