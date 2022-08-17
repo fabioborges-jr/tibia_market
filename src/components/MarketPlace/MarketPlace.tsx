@@ -3,6 +3,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 
 import MarketItem from "../MarketItem/MarketItem"
+import SellOfferList from "../SellOfferList/SellOfferList"
 
 import styles from "./styles.module.scss"
 
@@ -10,6 +11,7 @@ export default function MarketPlace() {
 
     const [items, setItems] = useState([])
     const [options, setOptions] = useState([])
+    const [world, setWorld] = useState("")
 
     useEffect(() => {
         axios.get("/api/items")
@@ -27,6 +29,13 @@ export default function MarketPlace() {
             .catch(error => console.log(error))
     }, [])
 
+    function handleSelectItem(item) {
+    }
+
+    function handleSelectWorld(world) {
+        setWorld(world.value)
+    }
+    
     return (
         <section className={styles.sectionContainer}>
 
@@ -38,11 +47,12 @@ export default function MarketPlace() {
                     placeholder="Select the world"
                     isClearable
                     className={styles.select}
+                    onChange={handleSelectWorld}
                 />
             </div>
 
             <ul className={styles.items}>
-                {items.map(item => <MarketItem key={item.name} itemsList={item} />)}
+                {items.map(item => <MarketItem key={item.name} itemsList={item} onClick={handleSelectItem} />)}
             </ul>
 
             <div className={styles.sellOffers}>
@@ -54,20 +64,6 @@ export default function MarketPlace() {
                             <th>Piece Price</th>
                         </tr>
                         <tr>
-                            <td>28-07-2022</td>
-                            <td>27,487 gold</td>
-                        </tr>
-                        <tr>
-                            <td>27-07-2022</td>
-                            <td>27,487 gold</td>
-                        </tr>
-                        <tr>
-                            <td>26-07-2022</td>
-                            <td>27,487 gold</td>
-                        </tr>
-                        <tr>
-                            <td>25-07-2022</td>
-                            <td>27,487 gold</td>
                         </tr>
                     </tbody>
                 </table>

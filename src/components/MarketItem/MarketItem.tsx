@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-export default function Item(props) {
+export default function Item(itemProps) {
     return (
         <li>
-            <img src={props.itemsList.image} alt="" />
-            {props.itemsList.name}
+            <img src={itemProps.itemsList.image} alt="" />
+            {itemProps.itemsList.name}
         </li>
     )
 }
