@@ -10,8 +10,8 @@ import styles from "./styles.module.scss"
 export default function MarketPlace() {
 
     const [items, setItems] = useState([])
-    const [options, setOptions] = useState([])
-    const [world, setWorld] = useState("")
+    const [optionsSelectWorld, setOptionsSelectWorld] = useState([])
+    const [worldSelect, setWorldSelect] = useState("")
 
     useEffect(() => {
         axios.get("/api/items")
@@ -21,10 +21,10 @@ export default function MarketPlace() {
 
     useEffect(() => {
         let data = []
-        axios.get("https://api.tibiadata.com/v3/worlds")
-            .then(response => data = response.data.worlds.regular_worlds)
-            .then(response => setOptions(data.map(world => {
-                return ({ value: world.name, label: world.name })
+        axios.get("/api/items")
+            .then(response => data = response.data)
+            .then(response => setOptionsSelectWorld(data.map(world => {
+                return ({ value: world.world, label: world.world })
             })))
             .catch(error => console.log(error))
     }, [])
@@ -32,10 +32,16 @@ export default function MarketPlace() {
     function handleSelectItem(item) {
     }
 
-    function handleSelectWorld(world) {
-        setWorld(world.value)
+    function handleSelectWorld(select) {
+        setWorldSelect(select.value)
+
+        items.map(world => {
+            if (world.world === worldSelect) {
+                setItems(world.items)
+            }
+        })
     }
-    
+
     return (
         <section className={styles.sectionContainer}>
 
@@ -43,9 +49,8 @@ export default function MarketPlace() {
 
             <div className={styles.world}>
                 <Select
-                    options={options}
+                    options={optionsSelectWorld}
                     placeholder="Select the world"
-                    isClearable
                     className={styles.select}
                     onChange={handleSelectWorld}
                 />

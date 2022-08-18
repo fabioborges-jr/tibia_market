@@ -2,7 +2,7 @@ export default function items(req, res) {
 
     function Item(world) {
         this.world = world
-        this.item = [
+        this.items = [
             { category: "other", name: "Tibia Coin", image: "/images/itemTibiaCoin.gif", buyPrices: [], sellPrices: [] },
             { category: "legs", name: "Falcon Greaves", image: "/images/itemFalconGreaves.gif", buyPrices: [], sellPrices: [] },
             { category: "weapons", name: "Soulbleeder", image: "/images/itemSoulbleeder.gif", buyPrices: [], sellPrices: [] },
@@ -14,11 +14,13 @@ export default function items(req, res) {
         ]
     }
 
-    const worlds = ["Venebra", "Reinobra"]
 
-    let data = [
-        worlds.map(world => new Item(world))
+    const worlds = [
+        "Venebra",
+        "Reinobra"
     ]
+
+    let data = worlds.map(world => new Item(world))
 
     res.json(data);
 }
