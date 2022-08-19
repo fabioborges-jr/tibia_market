@@ -10,12 +10,14 @@ import styles from "./styles.module.scss"
 export default function MarketPlace() {
 
     const [items, setItems] = useState([])
+    const [itemsApi, setItemsApi] = useState([])
     const [optionsSelectWorld, setOptionsSelectWorld] = useState([])
     const [worldSelect, setWorldSelect] = useState("")
+    const [sellPrices, setSellPrices] = useState([])
 
     useEffect(() => {
         axios.get("/api/items")
-            .then(response => setItems(response.data))
+            .then(response => setItemsApi(response.data))
             .catch(error => console.log(error))
     }, [])
 
@@ -29,15 +31,20 @@ export default function MarketPlace() {
             .catch(error => console.log(error))
     }, [])
 
-    function handleSelectItem(item) {
+    function handleSelectItem(itemSelect) {
+        items.map(item => {
+            if (itemSelect.value === item.name) {
+                setSellPrices(item.sellPrices)
+            }
+        })
     }
 
-    function handleSelectWorld(select) {
-        setWorldSelect(select.value)
+    function handleSelectWorld(world) {
 
-        items.map(world => {
-            if (world.world === worldSelect) {
-                setItems(world.items)
+        itemsApi.map(item => {
+            if (world.value === item.world) {
+                setItems(item.items)
+                console.log(items);
             }
         })
     }
@@ -69,6 +76,7 @@ export default function MarketPlace() {
                             <th>Piece Price</th>
                         </tr>
                         <tr>
+                            {sellPrices.map()}
                         </tr>
                     </tbody>
                 </table>
