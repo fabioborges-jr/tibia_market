@@ -32,19 +32,19 @@ export default function MarketPlace() {
     }, [])
 
     function handleSelectItem(itemSelect) {
+        console.log(itemSelect.value)
         items.map(item => {
             if (itemSelect.value === item.name) {
                 setSellPrices(item.sellPrices)
+                console.log(sellPrices)
             }
         })
     }
 
     function handleSelectWorld(world) {
-
         itemsApi.map(item => {
             if (world.value === item.world) {
                 setItems(item.items)
-                console.log(items);
             }
         })
     }
@@ -64,7 +64,7 @@ export default function MarketPlace() {
             </div>
 
             <ul className={styles.items}>
-                {items.map(item => <MarketItem key={item.name} itemsList={item} onClick={handleSelectItem} />)}
+                {items.map(item => <MarketItem key={item.name} itemsList={item} onClick={handleSelectItem} value={item.name}/>)}
             </ul>
 
             <div className={styles.sellOffers}>
@@ -76,7 +76,7 @@ export default function MarketPlace() {
                             <th>Piece Price</th>
                         </tr>
                         <tr>
-                            {sellPrices.map()}
+                            {sellPrices.map(price => <SellOfferList pricesList={price} key={price.date} />)}
                         </tr>
                     </tbody>
                 </table>
