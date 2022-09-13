@@ -3,7 +3,7 @@ export default function items(req, res) {
     function Item(world) {
         this.world = world
         this.items = [
-            { category: "other", name: "Tibia Coin", image: "/images/itemTibiaCoin.gif", buyPrices: [], sellPrices: [{ date: new Date, price: 13600 }] },
+            { category: "other", name: "Tibia Coin", image: "/images/itemTibiaCoin.gif", buyPrices: [{ date: (new Date).toLocaleDateString(), price: 13600 }], sellPrices: [{ date: (new Date).toLocaleDateString(), price: 13600 }] },
             { category: "legs", name: "Falcon Greaves", image: "/images/itemFalconGreaves.gif", buyPrices: [], sellPrices: [] },
             { category: "weapons", name: "Soulbleeder", image: "/images/itemSoulbleeder.gif", buyPrices: [], sellPrices: [] },
             { category: "weapons", name: "Soulshredder", image: "/images/itemSoulshredder.gif", buyPrices: [], sellPrices: [] },

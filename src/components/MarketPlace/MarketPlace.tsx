@@ -6,6 +6,7 @@ import MarketItem from "../MarketItem/MarketItem"
 import SellOfferList from "../SellOfferList/SellOfferList"
 
 import styles from "./styles.module.scss"
+import BuyOfferList from "../BuyOfferList/BuyOfferLIst"
 
 export default function MarketPlace() {
 
@@ -14,6 +15,7 @@ export default function MarketPlace() {
     const [itemsApi, setItemsApi] = useState([])
     const [optionsSelectWorld, setOptionsSelectWorld] = useState([])
     const [sellPrices, setSellPrices] = useState([])
+    const [buyPrices, setBuyPrices] = useState([])
 
     useEffect(() => {
         axios.get("/api/items")
@@ -30,16 +32,6 @@ export default function MarketPlace() {
             })))
             .catch(error => console.log(error))
     }, [])
-
-    // function handleSelectItem(itemSelect) {
-    //     console.log(itemSelect)
-    //     items.map(item => {
-    //         if (itemSelect.value === item.name) {
-    //             setSellPrices(item.sellPrices)
-    //             console.log(sellPrices)
-    //         }
-    //     })
-    // }
 
     function handleSelectWorld(world) {
         itemsApi.map(item => {
@@ -70,7 +62,10 @@ export default function MarketPlace() {
                     <MarketItem
                         key={item.name}
                         itemsList={item}
-                        onClick={() => { setSellPrices(item.sellPrices) }}
+                        onClick={() => { 
+                            setSellPrices(item.sellPrices) 
+                            setBuyPrices(item.buyPrices) 
+                        }}
                     />)}
             </ul>
 
@@ -82,9 +77,7 @@ export default function MarketPlace() {
                             <th>Date</th>
                             <th>Piece Price</th>
                         </tr>
-                        <tr>
-                            {sellPrices.map(price => <SellOfferList pricesList={price} key={price.date} />)}
-                        </tr>
+                        {sellPrices.map(price => <SellOfferList pricesList={price} key={price.date} />)}
                     </tbody>
                 </table>
             </div>
@@ -97,22 +90,7 @@ export default function MarketPlace() {
                             <th>Date</th>
                             <th>Piece Price</th>
                         </tr>
-                        <tr>
-                            <td>28-07-2022</td>
-                            <td>27,487 gold</td>
-                        </tr>
-                        <tr>
-                            <td>27-07-2022</td>
-                            <td>27,487 gold</td>
-                        </tr>
-                        <tr>
-                            <td>26-07-2022</td>
-                            <td>27,487 gold</td>
-                        </tr>
-                        <tr>
-                            <td>25-07-2022</td>
-                            <td>27,487 gold</td>
-                        </tr>
+                        {buyPrices.map(price => <BuyOfferList pricesList={price} key={price.date} />)}
                     </tbody>
                 </table>
             </div>

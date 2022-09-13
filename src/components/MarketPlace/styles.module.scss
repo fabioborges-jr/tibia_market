@@ -119,6 +119,7 @@
         grid-area: sellOffers;
         background-color: var(--gray-700);
         padding: 1rem;
+        overflow-y: scroll;
 
         table {
             tbody {
@@ -138,6 +139,7 @@
         height: 15rem;
         grid-area: buyOffers;
         background-color: var(--gray-700);
+        overflow-y: scroll;
 
         table {
             tbody {
