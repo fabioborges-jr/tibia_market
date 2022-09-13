@@ -10,9 +10,9 @@ import styles from "./styles.module.scss"
 export default function MarketPlace() {
 
     const [items, setItems] = useState([])
+    const [itemSelected, setItemSelected] = useState("")
     const [itemsApi, setItemsApi] = useState([])
     const [optionsSelectWorld, setOptionsSelectWorld] = useState([])
-    const [worldSelect, setWorldSelect] = useState("")
     const [sellPrices, setSellPrices] = useState([])
 
     useEffect(() => {
@@ -31,15 +31,15 @@ export default function MarketPlace() {
             .catch(error => console.log(error))
     }, [])
 
-    function handleSelectItem(itemSelect) {
-        console.log(itemSelect.value)
-        items.map(item => {
-            if (itemSelect.value === item.name) {
-                setSellPrices(item.sellPrices)
-                console.log(sellPrices)
-            }
-        })
-    }
+    // function handleSelectItem(itemSelect) {
+    //     console.log(itemSelect)
+    //     items.map(item => {
+    //         if (itemSelect.value === item.name) {
+    //             setSellPrices(item.sellPrices)
+    //             console.log(sellPrices)
+    //         }
+    //     })
+    // }
 
     function handleSelectWorld(world) {
         itemsApi.map(item => {
@@ -60,11 +60,18 @@ export default function MarketPlace() {
                     placeholder="Select the world"
                     className={styles.select}
                     onChange={handleSelectWorld}
+                    id="long-value-select"
+                    instanceId="long-value-select"
                 />
             </div>
 
             <ul className={styles.items}>
-                {items.map(item => <MarketItem key={item.name} itemsList={item} onClick={handleSelectItem} value={item.name}/>)}
+                {items.map(item =>
+                    <MarketItem
+                        key={item.name}
+                        itemsList={item}
+                        onClick={() => { setSellPrices(item.sellPrices) }}
+                    />)}
             </ul>
 
             <div className={styles.sellOffers}>

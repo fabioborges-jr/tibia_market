@@ -1,8 +1,8 @@
 export default function SellOfferList(pricesProps) {
     return (
         <>
-            <td>{pricesProps.date}</td>
-            <td>{pricesProps.price}</td>
+            <td>{pricesProps.pricesList.date}</td>
+            <td>{pricesProps.pricesList.price}</td>
         </>
     )
 }
