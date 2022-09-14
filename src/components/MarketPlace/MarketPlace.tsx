@@ -11,7 +11,7 @@ import BuyOfferList from "../BuyOfferList/BuyOfferLIst"
 export default function MarketPlace() {
 
     const [items, setItems] = useState([])
-    const [itemSelected, setItemSelected] = useState("")
+    const [worldSelected, setWorldSelected] = useState("")
     const [itemsApi, setItemsApi] = useState([])
     const [optionsSelectWorld, setOptionsSelectWorld] = useState([])
     const [sellPrices, setSellPrices] = useState([])
@@ -33,18 +33,23 @@ export default function MarketPlace() {
             .catch(error => console.log(error))
     }, [])
 
+    function handleSubmitPrices(){
+        axios.post("/api/items")
+    }
+
     function handleSelectWorld(world) {
         itemsApi.map(item => {
             if (world.value === item.world) {
                 setItems(item.items)
             }
         })
+        setWorldSelected(world.value)
     }
 
     return (
         <section className={styles.sectionContainer}>
 
-            <p className={styles.title}>Market from Venebra</p>
+            <p className={styles.title}>{worldSelected ? `Market from ${worldSelected}` : "Market"}</p>
 
             <div className={styles.world}>
                 <Select
@@ -62,9 +67,9 @@ export default function MarketPlace() {
                     <MarketItem
                         key={item.name}
                         itemsList={item}
-                        onClick={() => { 
-                            setSellPrices(item.sellPrices) 
-                            setBuyPrices(item.buyPrices) 
+                        onClick={() => {
+                            setSellPrices(item.sellPrices)
+                            setBuyPrices(item.buyPrices)
                         }}
                     />)}
             </ul>
@@ -96,15 +101,14 @@ export default function MarketPlace() {
             </div>
 
             <div className={styles.howMuch}>
-                <p>How much does it cost at Venebra right now? (login with google require)</p>
+                <p>{worldSelected ? `How much does it cost at ${worldSelected} right now? (login with google require)` : ""}</p>
                 <article>
                     <label>Sell Offer:<input type="number" name="" id="" /></label>
                     <label>
                         Buy Offer:
                         <input type="number" name="" id="" />
-                        <button>Submit</button>
+                        <button onClick={handleSubmitPrices}>Submit</button>
                     </label>
-
                 </article>
             </div>
 
